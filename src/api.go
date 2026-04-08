@@ -72,6 +72,7 @@ type Trace struct {
 	EndTime     string            `json:"end_time,omitempty"`
 	ProjectName string            `json:"project_name"`
 	ThreadID    string            `json:"thread_id,omitempty"`
+	Metadata    map[string]string `json:"metadata,omitempty"`
 	Tags        []string          `json:"tags,omitempty"`
 	Input       map[string]string `json:"input,omitempty"`
 	Output      map[string]string `json:"output,omitempty"`

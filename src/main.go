@@ -114,6 +114,7 @@ func onPrompt() {
 			StartTime:   ts,
 			ProjectName: config.Project,
 			ThreadID:    input.SessionID,
+			Metadata:    map[string]string{"session_id": input.SessionID},
 			Tags:        []string{"claude-code"},
 			Input:       map[string]string{"text": input.Prompt},
 		}
@@ -218,6 +219,7 @@ func onCompact() {
 				StartTime:   ts,
 				ProjectName: config.Project,
 				ThreadID:    input.SessionID,
+				Metadata:    map[string]string{"session_id": input.SessionID},
 				Tags:        []string{"claude-code"},
 			}
 			if err := api.Post("/traces", trace); err != nil {
@@ -248,6 +250,7 @@ func onCompact() {
 		EndTime:     ts,
 		ProjectName: config.Project,
 		ThreadID:    input.SessionID,
+		Metadata:    map[string]string{"session_id": input.SessionID},
 		Tags:        []string{"claude-code", "compaction"},
 	}
 	if err := api.Post("/traces", trace); err != nil {
